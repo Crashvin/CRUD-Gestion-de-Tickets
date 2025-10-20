@@ -21,60 +21,84 @@
 
         <section class="form-section">
             <h2 id="form-title">➕ Crear Nuevo Ticket</h2>
-            <form id="ticket-form" action="">
+            <form id="ticket-form">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="ticket-title">Titulo del Ticket</label>
-                        <input type="text" id="ticket-title" placeholder="Ej. Corregir error en Login" required >
+                        <label for="ticket-title">Título del Ticket *</label>
+                        <input 
+                            type="text" 
+                            id="ticket-title" 
+                            placeholder="Ej: Corregir error en login"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ticket-priority">Prioridad *</label>
+                        <select id="ticket-priority" required>
+                            <option value="">Selecciona una prioridad</option>
+                            <option value="baja">🟢 Baja</option>
+                            <option value="media">🟡 Media</option>
+                            <option value="alta">🔴 Alta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="ticket-description">Descripción *</label>
+                        <textarea 
+                            id="ticket-description" 
+                            placeholder="Describe el ticket detalladamente..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ticket-status">Estado *</label>
+                        <select id="ticket-status" required>
+                            <option value="pendiente">⏳ Pendiente</option>
+                            <option value="en-progreso">🔄 En Progreso</option>
+                            <option value="completado">✅ Completado</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="ticket-priority">Nivel de Prioridad</label>
-                    <select name="" id="ticket-priority" required>
-                        <option value="baja">Selecciona un nivel de prioridad</option>
-                        <option value="baja">🟢 Baja</option>
-                        <option value="media">🟡 Media</option>
-                        <option value="alta">🔴 Alta</option>
-                    </select>
-                </div>
-
-                <div class="form-group fill-width">
-                    <label for="ticket-description">Descripción</label>
-                    <textarea name="" id="ticket-description" placeholder="Describe la tarea a asignar detalladamente..." required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="ticket-status">Estado del Ticket</label>
-                    <select name="" id="ticket-status" required>
-                        <option value="pending">⏳ Pendiente</option>
-                        <option value="in-progress">🔄 En Progreso</option>
-                        <option value="complete">✅ Completado</option>
-                    </select>
-                </div>
-
-                <div class="create-ticket">
-                    <button type="submit" class="btn btn-primary" id="submit-btn">Crear Ticket</button>
-                    <button type="button" class="btn btn-cancel" id="btn-cancel">Cancelar Ticket</button>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                        Crear Ticket
+                    </button>
+                    <button type="button" class="btn btn-cancel" id="cancel-btn" style="display: none;">
+                        Cancelar
+                    </button>
                 </div>
             </form>
         </section>
 
         <section class="tickets-section">
             <h2>📋 Lista de Tickets</h2>
-
-            <div class="filters">
-                <button class="filter-btn active" data-filter="todos">Todos</button>
-                <button class="filter-btn" data-filter="pendiente">Pendiente</button>
-                <button class="filter-btn" data-filter="en-progreso">En Progreso</button>
-                <button class="filter-btn" data-filter="completado">Completado</button>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="pendiente">Pendientes</button>
+                    <button class="filter-btn" data-filter="en-progreso">En Progreso</button>
+                    <button class="filter-btn" data-filter="completado">Completados</button>
+                </div>
+                
+                <div id="stats-container" style="display: flex; gap: 15px; font-size: 14px; font-weight: 600;">
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="🔍 Buscar tickets por título o descripción..."
+                    style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px;"
+                >
             </div>
 
             <div class="tickets-container" id="tickets-container">
-
             </div>
         </section>
-
     </div>
 
 

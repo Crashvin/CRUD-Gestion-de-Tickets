@@ -7,6 +7,8 @@ let ticketIdCounter = 1;
 let editingTicketId = null;
 //Variable to store the current filter
 let currentFilter = 'todos';
+//Variable for search term
+let searchTerm = '';
 
 // DOM REFERENCES
 const form = document.getElementById('ticket-form');
