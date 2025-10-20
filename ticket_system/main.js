@@ -13,7 +13,7 @@ let searchTerm = '';
 // DOM REFERENCES
 const form = document.getElementById('ticket-form');
 const formTitle = document.getElementById('form-title');
-const SumitBtn = document.getElementById('sumit-btn');
+const SubmitBtn = document.getElementById('sumit-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const ticketsContainer = document.getElementById('tickets-container');
 
